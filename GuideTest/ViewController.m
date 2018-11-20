@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 
+#define IS_GREEN_APP [[[NSBundle mainBundle] bundleIdentifier] containsString:@"com.glb.Green"]
+#define SCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
+
 @interface ViewController ()
 
 @end
@@ -34,6 +37,13 @@
     _showLb.text = [NSString stringWithFormat:@"bundle ID:%@,\nversionStr:%@,\nbuildNumber:%@,\nserverUrl:%@",bundleIdentifier,versionStr,buildNumber,serverUrl];
     
     NSLog(@"bundle ID:%@,\ndisplayName:%@,\nversionStr:%@,\nbuildNumber:%@,\nserverUrl:%@",bundleIdentifier,displayName,versionStr,buildNumber,serverUrl);
+    
+    NSLog(@"SCREEN_WIDTH:%lf",SCREEN_WIDTH);
+    if(IS_GREEN_APP){
+        NSLog(@"The APP is Green Guide APP");
+    }else{
+        NSLog(@"The APP is Cramer APP");
+    }
     
 }
 
